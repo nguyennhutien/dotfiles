@@ -1,0 +1,32 @@
+# ==============================
+# OS / Editor junk
+# ==============================
+.DS_Store
+Thumbs.db
+
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ==============================
+# Chezmoi runtime state
+# ==============================
+.chezmoi-state/
+.chezmoi-cache/
+
+# ==============================
+# Secrets (never commit)
+# ==============================
+secrets/*.env
+secrets/**/*.env
+
+# If you later store encrypted blobs, DO NOT ignore *.age
+# secrets/*.age
+
+# ==============================
+# Logs / temp
+# ==============================
+*.log
+tmp/
+.cache/

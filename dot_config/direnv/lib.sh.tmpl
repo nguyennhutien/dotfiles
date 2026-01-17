@@ -1,0 +1,12 @@
+SECRETS_DIR="{{ .chezmoi.homeDir }}/.secrets"
+
+load_secret() {
+  local name="$1"
+  local file="$SECRETS_DIR/$name.env"
+
+  [[ -f "$file" ]] || return 1
+
+  set -a
+  source "$file"
+  set +a
+}

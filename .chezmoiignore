@@ -1,0 +1,8 @@
+# Ignore editor junk
+.DS_Store
+.idea/
+.vscode/
+
+
+# Ignore decrypted secrets
+secrets/*.env

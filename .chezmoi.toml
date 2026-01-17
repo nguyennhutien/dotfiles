@@ -1,0 +1,10 @@
+[data]
+name = "tiennguyen"
+
+
+[git]
+autoCommit = false
+
+
+[age]
+recipient = "AGE-RECIPIENT-PLACEHOLDER"

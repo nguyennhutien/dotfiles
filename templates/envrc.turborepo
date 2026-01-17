@@ -1,0 +1,6 @@
+use mise
+dotenv_if_exists .envrc.local
+
+
+export TURBO_CACHE_DIR="$PWD/.cache/turbo"
+export PNPM_STORE_DIR="$HOME/.cache/pnpm-store"

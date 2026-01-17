@@ -1,0 +1,7 @@
+[global]
+warn_timeout = "2s"
+load_dotenv = false
+
+
+[cache]
+dir = "~/.cache/direnv"
