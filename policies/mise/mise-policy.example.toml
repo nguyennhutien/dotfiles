@@ -1,0 +1,124 @@
+# ==========================================
+# Company Runtime Policy (mise)
+# Scope: Organization-wide
+# Purpose:
+#   - Define supported runtimes (knowledge boundary)
+#   - Prevent unsafe / unknown versions
+#   - Allow multi-product, multi-stack coexistence
+# ==========================================
+
+[meta]
+owner = "platform-team"
+version = "2026.01"
+last_updated = "2026-01-15"
+description = "Organization-wide runtime policy for mise"
+
+# ------------------------------------------------
+# REQUIRED — platform invariants (use sparingly)
+# ------------------------------------------------
+# Rules:
+# - Do NOT pin versions here
+# - Only declare tools that MUST exist if referenced
+# - Should rarely change
+
+[required]
+tools = [
+  "node",
+  "pnpm",
+  "python",
+  "go",
+  "rust"
+]
+
+# ------------------------------------------------
+# ALLOWED — knowledge & support boundary
+# ------------------------------------------------
+# Rules:
+# - Allowed versions are those:
+#   * Tested in CI
+#   * Supported by infra
+#   * Understood by platform team
+# - Projects may choose ANY version inside this set
+
+[allowed]
+
+# ---- Node.js ----
+node = [
+  "18",      # LTS (legacy support)
+  "20",      # Active LTS (default)
+  "22"       # Next LTS (early adoption)
+]
+
+# ---- Package Managers ----
+pnpm = [
+  "8",
+  "9"
+]
+
+# ---- Python ----
+python = [
+  "3.10",
+  "3.11",
+  "3.12"
+]
+
+# ---- Go ----
+go = [
+  "1.21",
+  "1.22"
+]
+
+# ---- Rust ----
+rust = [
+  "stable"
+]
+
+# ---- WASM / Tooling ----
+wasm-pack = [
+  "0.13"
+]
+
+# ------------------------------------------------
+# DENIED — explicit bans (security / EOL)
+# ------------------------------------------------
+# Rules:
+# - Use when a version is:
+#   * EOL
+#   * Has known CVEs
+#   * Breaks infra/tooling
+
+[denied]
+
+node = [
+  "<18",     # EOL
+  "19"       # Non-LTS
+]
+
+python = [
+  "<3.10"
+]
+
+# ------------------------------------------------
+# DEFAULTS — recommendations, not enforcement
+# ------------------------------------------------
+# Rules:
+# - Used by init scripts & documentation
+# - CI does NOT fail if projects differ
+
+[defaults]
+
+node = "20"
+pnpm = "9"
+python = "3.12"
+go = "1.22"
+rust = "stable"
+
+# ------------------------------------------------
+# NOTES
+# ------------------------------------------------
+# - This file is consumed by:
+#   * doctor.sh --project
+#   * CI runtime validation
+#   * init-project.sh templates
+# - This file should NOT live in individual repos
+# - Changes require platform review

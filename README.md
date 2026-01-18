@@ -19,7 +19,7 @@ This repository is the **single source of truth** for my development environment
 ## Bootstrap (new machine)
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/nguyennhutien/dotfiles/main/bootstrap.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/nguyennhutien/dotfiles/main/scripts/bootstrap.sh)"
 ```
 
 ## Daily usage
